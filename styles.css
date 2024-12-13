@@ -115,6 +115,10 @@ h3{
     
 }
 
+.box:active{
+  transform: scale(0.9);
+}
+
 .box h1{
     font-size: 1rem;
     font-style: normal;

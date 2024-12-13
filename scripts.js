@@ -6,6 +6,10 @@ const winnerMessage = document.getElementById("winner-message");
 const gameContainer = document.getElementById("game-container");
 const minute = document.getElementById("minute");
 const second = document.getElementById("second");
+    
+const movesound = document.getElementById("move");
+const tiesound = document.getElementById("tie");
+const winsound = document.getElementById("win");
 
 const b1b2b3 = document.getElementById("b1b2b3");
 const b4b5b6 = document.getElementById("b4b5b6");
@@ -29,6 +33,7 @@ boxes.forEach((box) => {
 });
 
 function handleClick(e) {
+movesound.play()
   if (!isTimerStarted) {
     timeINSeconds = 0;
     timeInMinutes = 0;
@@ -40,7 +45,6 @@ function handleClick(e) {
     e.target.firstElementChild.classList.remove("red");
     e.target.firstElementChild.classList.add("green");
   } else {
-    
     e.target.firstElementChild.classList.remove("green");
     e.target.firstElementChild.classList.add("red");
   }
@@ -71,23 +75,14 @@ function restart() {
   clearInterval(timeInterval);
   winnerMessage.classList.remove("winner-active");
   gameContainer.classList.remove("click-disable");
-  
 
-  document.querySelectorAll('.line').forEach((line) => {
-    line.classList.remove(winner == 'o' ? 'bg-green' : 'bg-red')
-  })
+  document.querySelectorAll(".line").forEach((line) => {
+    line.classList.remove(winner == "o" ? "bg-green" : "bg-red");
+  });
 
-  
-
-
-
-  isvalueo = true
+  isvalueo = true;
   winner = null;
   isTie = false;
-
-  
-
-
 }
 
 function checkwinner() {
@@ -163,6 +158,7 @@ function checkwinner() {
     winner == null
   ) {
     isTie = true;
+  
     gameEnd();
   }
 }
@@ -181,6 +177,12 @@ function startTimer() {
 }
 
 function gameEnd() {
+  if (isTie) {
+    tiesound.play()
+  }
+  else {
+    winsound.play()
+  }
   clearInterval(timeInterval);
 
   gameContainer.classList.add("click-disable");
@@ -188,3 +190,5 @@ function gameEnd() {
   winnerMessage.textContent =
     winner == "o" && isTie == false ? "WINNER IS O" : winner == "x" && isTie == false ? "WINNER IS X" : "Game Tied !";
 }
+
+
