@@ -145,6 +145,15 @@ h2{
     align-items: center;
 }
 
+.credit{
+  font-size: 1.5rem;
+  font-weight: 500;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.3;
+}
+
 h2:hover{
     background-color: rgb(203, 71, 71);
     cursor: pointer;
@@ -309,6 +318,12 @@ display: block;
 
     :root{
         font-size: 10px;
+    }
+
+    .credit{
+      opacity: 0.2;
+      bottom: 5px;
+      right: 5px;
     }
 
  .title{

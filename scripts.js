@@ -191,3 +191,24 @@ function gameEnd() {
   winnerMessage.textContent =
     winner == "o" && isTie == false ? "WINNER IS O" : winner == "x" && isTie == false ? "WINNER IS X" : "Game Tied !";
 }
+
+
+
+
+
+// Preload sounds
+movesound.play();
+movesound.pause();
+movesound.currentTime = 0;
+
+tiesound.play();
+tiesound.pause();
+tiesound.currentTime = 0;
+
+winsound.play();
+winsound.pause();
+winsound.currentTime = 0;
+
+restartsound.play();
+restartsound.pause();
+restartsound.currentTime = 0;
