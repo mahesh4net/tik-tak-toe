@@ -82,7 +82,7 @@ function restart() {
     line.classList.remove(winner == "o" ? "bg-green" : "bg-red");
   });
 
-  isvalueo = true;
+  
   winner = null;
   isTie = false;
 }
