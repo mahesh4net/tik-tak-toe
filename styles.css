@@ -1,160 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-
-
-
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    font-family: 'Comic Neue';
-    color: white;
+body {
+  font-family: "Comic Neue";
+  color: white;
 }
 
-
-.main-container{
-    max-width: 100%;
-    min-height: 100vh;
-    height: auto;
-    background-color: rgb(30, 33, 37);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    text-align: center;
-    
+.main-container {
+  max-width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-color: rgb(30, 33, 37);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
 }
 
- .title{
-    font-size: 4rem;
-    display: inline-block;
-    width: 30%;
-    padding-block: 0.5rem;
-   font-style: italic;
-    font-weight: 700 !important;
-    border-radius: 3rem;
-    margin-bottom: 1rem;
+.title {
+  font-size: 4rem;
+  display: inline-block;
+  width: 30%;
+  padding-block: 0.5rem;
+  font-style: italic;
+  font-weight: 700 !important;
+  border-radius: 3rem;
+  margin-bottom: 1rem;
 }
 
-.timer{
-    font-size: 2rem;
+.timer {
+  font-size: 2rem;
 }
 
-.turn-indicator{
-    display: flex;
-    gap: 1rem;
-    background-color: rgb(134, 6, 193);
-    padding: 0.3rem;
-    border-radius: 1rem;
-    font-size: 1rem;
-    width: 33.33%;
+.turn-indicator {
+  display: flex;
+  gap: 1rem;
+  background-color: rgb(134, 6, 193);
+  padding: 0.3rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  width: 33.33%;
 }
 
-h3{
-    display: inline-block;
-    padding: 1rem 0rem;
-    width: 50%;
-    border-radius: 1rem;
+h3 {
+  display: inline-block;
+  padding: 1rem 0rem;
+  width: 50%;
+  border-radius: 1rem;
 }
 
-.turn-active{
-    background-color: rgba(0, 0, 0, 0.676);
+.turn-active {
+  background-color: rgba(0, 0, 0, 0.676);
 }
 
+.game-container {
+  width: 30%;
+  max-width: 30%;
+  aspect-ratio: 1/1;
+  background: linear-gradient(45deg, rgb(99, 5, 221) 0%, rgb(157, 4, 204) 100%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  position: relative;
+  padding: 1rem;
+  overflow: hidden;
+}
 
-.game-container{
-    width: 30%;
-    max-width: 30%;
-    aspect-ratio: 1/1;
-     background: linear-gradient(
-    45deg, 
-    rgb(99, 5, 221) 0%,   
-    rgb(157, 4, 204) 100% 
+.winner-message {
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 1rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    rgba(0, 255, 51, 0) 0%,
+    /* Fully transparent on the left */ rgb(0, 255, 81) 40%,
+    /* Solid black in the center */ rgb(0, 255, 81) 60%,
+    /* Solid black in the center */ rgba(0, 255, 51, 0) 100% /* Fully transparent on the right */
   );
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    position: relative;
-    padding: 1rem;
-    overflow: hidden;
+  width: 30%;
+
+  color: white;
+}
+.winner-active {
+  display: flex !important;
 }
 
-.winner-message{
-    
-    font-size: 3rem;
-    font-weight: 700;
-    padding: 1rem;
-    display: none;
-    justify-content: center;
-    align-items: center;
-     background: linear-gradient(
-    to right, 
-    rgba(0, 255, 51, 0) 0%,      /* Fully transparent on the left */
-    rgb(0, 255, 81) 40%,     /* Solid black in the center */
-    rgb(0, 255, 81) 60%,     /* Solid black in the center */
-    rgba(0, 255, 51, 0) 100%     /* Fully transparent on the right */
-  );
-    width: 30%;
-   
-    color: white;
-}
-.winner-active{
-    display: flex !important;
+.box {
+  max-width: calc(33.33% - 0.6rem);
+  width: calc(33.33% - 0.6rem);
+  max-height: calc(33.33% - 0.6rem);
+  height: calc(33.33% - 0.6rem);
+  display: flex;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.534);
+  padding: 0px;
 }
 
-.box{
-    max-width: calc(33.33% - 0.6rem);
-    width: calc(33.33% - 0.6rem);
-    max-height: calc(33.33% - 0.6rem);
-    height: calc(33.33% - 0.6rem);
-    display: flex;
-    border-radius: 1rem;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.534);
-    padding: 0px;
-    
-}
-
-.box:active{
+.box:active {
   transform: scale(0.9);
 }
 
-.box h1{
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 700;
-    transition: all 0.05s ease-in-out;
-    display: inline-block;
-    text-align: center;
-    width: fit-content;
-    height: fit-content;
-    user-select: none;
-    margin-bottom: 3rem;
+.box h1 {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  transition: all 0.05s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  user-select: none;
+  margin-bottom: 1.8rem;
 }
 
-h2{
-    background-color: rgb(226, 23, 23);
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    width: 33.33%;
-
+h2 {
+  background-color: rgb(226, 23, 23);
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  width: 33.33%;
 }
 
-.top-menu{
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.top-menu {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.credit{
+.credit {
   font-size: 1.5rem;
   font-weight: 500;
   position: absolute;
@@ -163,41 +149,37 @@ h2{
   opacity: 0.3;
 }
 
-h2:hover{
-    background-color: rgb(203, 71, 71);
-    cursor: pointer;
+h2:hover {
+  background-color: rgb(203, 71, 71);
+  cursor: pointer;
 }
 
-h2:active{
-    transform: scale(0.9);
+h2:active {
+  transform: scale(0.9);
 }
 
-.popup{
-    font-size: 12rem !important;
+.popup {
+  font-size: 12rem !important;
 }
 
-.red{
-    color: red !important;
-    text-shadow: 0px 0px 15px rgb(255, 0, 0);
-
+.red {
+  color: red !important;
+  text-shadow: 0px 0px 15px rgb(255, 0, 0);
 }
 
-.green{
-    color: rgb(9, 237, 9) !important;
-    text-shadow: 0px 0px 15px rgb(0, 255, 8);
-
+.green {
+  color: rgb(9, 237, 9) !important;
+  text-shadow: 0px 0px 15px rgb(0, 255, 8);
 }
 
-.click-disable{
-    pointer-events: none;
+.click-disable {
+  pointer-events: none;
 }
 
-.box:hover{
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.687);
+.box:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.687);
 }
-
-
 
 .b1b2b3,
 .b4b5b6,
@@ -207,154 +189,176 @@ h2:active{
 .b3b6b9,
 .b1b5b9,
 .b3b5b7 {
-    position: absolute;
-    background-color: rgb(254, 254, 254); /* Line color */
-    display: none; /* Initially hidden */
-    z-index: 10; /* Ensure it's on top of boxes */
+  position: absolute;
+  background-color: rgb(254, 254, 254); /* Line color */
+  display: none; /* Initially hidden */
+  z-index: 10; /* Ensure it's on top of boxes */
 }
 
-.b1b2b3 { top: 16%; left: 0; width: 100%; height: 10px; }
-.b4b5b6 { top: 50%; left: 0; width: 100%; height: 10px; }
-.b7b8b9 { bottom: 16%; left: 0; width: 100%; height: 10px; }
-
-.b1b4b7 { left: 16%; top: 0; width: 10px; height: 100%; }
-.b2b5b8 { left: 50%; top: 0; width: 10px; height: 100%; }
-.b3b6b9 { right: 16%; top: 0; width: 10px; height: 100%; }
-
-.b1b5b9 { top: 50%; left: 0; width: 100%; height: 10px; transform: rotate(45deg); }
-.b3b5b7 { top: 50%; right: 0; width: 100%; height: 10px; transform: rotate(-45deg); }
-
-
-.bg-red{
-background-color: red;
-display: block;
+.b1b2b3 {
+  top: 16%;
+  left: 0;
+  width: 100%;
+  height: 10px;
 }
-.bg-green{
-background-color: rgb(0, 255, 64);
-display: block;
-
+.b4b5b6 {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+.b7b8b9 {
+  bottom: 16%;
+  left: 0;
+  width: 100%;
+  height: 10px;
 }
 
-@media (max-width: 1440px){
+.b1b4b7 {
+  left: 16%;
+  top: 0;
+  width: 10px;
+  height: 100%;
+}
+.b2b5b8 {
+  left: 50%;
+  top: 0;
+  width: 10px;
+  height: 100%;
+}
+.b3b6b9 {
+  right: 16%;
+  top: 0;
+  width: 10px;
+  height: 100%;
+}
 
-    :root{
-        font-size: 12px;
-    }
+.b1b5b9 {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  transform: rotate(45deg);
+}
+.b3b5b7 {
+  top: 50%;
+  right: 0;
+  width: 100%;
+  height: 10px;
+  transform: rotate(-45deg);
+}
 
-  .top-menu h2{
+.bg-red {
+  background-color: red;
+  display: block;
+}
+.bg-green {
+  background-color: rgb(0, 255, 64);
+  display: block;
+}
+
+@media (max-width: 1440px) {
+  :root {
+    font-size: 12px;
+  }
+
+  .top-menu h2 {
     padding-inline: 0.5rem;
   }
 
- .title{
+  .title {
     width: 30%;
- }
+  }
 
-  .game-container{
+  .game-container {
     width: 30%;
     max-width: 30%;
   }
-  .winner-message{
+  .winner-message {
     width: 30%;
   }
-  .top-menu{
+  .top-menu {
     width: 30%;
   }
- body{
-  overflow-y: auto !important;
-
- }
+  body {
+    overflow-y: auto !important;
+  }
 }
 
+@media (max-width: 1024px) {
+  :root {
+    font-size: 15px;
+  }
 
-
-
-@media (max-width: 1024px){
-
-    :root{
-        font-size: 15px;
-    }
-
- .title{
+  .title {
     width: 60%;
- }
+  }
 
-  .game-container{
+  .game-container {
     width: 60%;
     max-width: 60%;
   }
-  .winner-message{
+  .winner-message {
     width: 60%;
   }
-  .top-menu{
+  .top-menu {
     width: 60%;
   }
- body{
-  overflow-y: auto !important;
-
- }
+  body {
+    overflow-y: auto !important;
+  }
 }
 
+@media (max-width: 768px) {
+  :root {
+    font-size: 13px;
+  }
 
-@media (max-width: 768px){
-
-    :root{
-        font-size: 13px;
-    }
-
- .title{
+  .title {
     width: 70%;
- }
+  }
 
-  .game-container{
+  .game-container {
     width: 70%;
     max-width: 70%;
   }
-  .winner-message{
+  .winner-message {
     width: 100%;
   }
-  .top-menu{
+  .top-menu {
     width: 70%;
   }
- body{
-  overflow-y: auto !important;
-
- }
+  body {
+    overflow-y: auto !important;
+  }
 }
 
+@media (max-width: 426px) {
+  :root {
+    font-size: 10px;
+  }
 
+  .credit {
+    opacity: 0.2;
+    bottom: 5px;
+    right: 5px;
+  }
 
-@media (max-width: 426px){
-
-    :root{
-        font-size: 10px;
-    }
-
-    .credit{
-      opacity: 0.2;
-      bottom: 5px;
-      right: 5px;
-    }
-
- .title{
+  .title {
     width: 90%;
- }
+  }
 
-  .game-container{
+  .game-container {
     width: 90%;
     max-width: 90%;
   }
-  .winner-message{
+  .winner-message {
     width: 100%;
   }
-  .top-menu{
+  .top-menu {
     width: 90%;
   }
- body{
-  overflow-y: auto !important;
-
- }
-
-
-
-
+  body {
+    overflow-y: auto !important;
+  }
 }
