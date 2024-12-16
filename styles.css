@@ -5,7 +5,7 @@
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: comic sans ms;
     color: white;
 }
 
@@ -126,7 +126,10 @@ h3{
     transition: all 0.05s ease-in-out;
     display: inline-block;
     text-align: center;
-    margin-bottom: 1.5rem;
+    width: fit-content;
+    height: fit-content;
+    user-select: none;
+    margin-bottom: 3rem;
 }
 
 h2{

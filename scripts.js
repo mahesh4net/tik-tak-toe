@@ -52,6 +52,7 @@ function handleClick(e) {
 
   e.target.firstElementChild.textContent = isvalueo ? "o" : "x";
   e.target.firstElementChild.classList.add("popup");
+  e.target.classList.add('click-disable')
   checkwinner();
   if (isvalueo == true) {
     isvalueo = false;
@@ -82,13 +83,17 @@ function restart() {
     line.classList.remove(winner == "o" ? "bg-green" : "bg-red");
   });
 
+  boxes.forEach((boxelement) => {
+    boxelement.classList.remove("click-disable");
+  })
+
   
   winner = null;
   isTie = false;
 }
 
 function checkwinner() {
-  console.log("ggggg");
+ 
   const box1value = document.getElementById("box-1").firstElementChild.textContent;
   const box2value = document.getElementById("box-2").firstElementChild.textContent;
   const box3value = document.getElementById("box-3").firstElementChild.textContent;
@@ -167,7 +172,7 @@ function checkwinner() {
 
 function startTimer() {
   timeInterval = setInterval(() => {
-    timeINSeconds += 1;
+    timeINSeconds += 1 
     second.textContent = timeINSeconds.toString().padStart(2, "0");
 
     if (timeINSeconds > 59) {
