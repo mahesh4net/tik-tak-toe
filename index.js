@@ -3,21 +3,26 @@ import { createServer } from "node:http";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { Server } from "socket.io";
+import cors from "cors";
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server);
+
+app.use(
+  cors({
+    origin: "https://mahesh4net.github.io", // Replace with your frontend URL
+    methods: ["GET", "POST"], // Allowed HTTP methods
+  })
+);
+
+const io = new Server(server, {
+  cors: {
+    origin: "https://mahesh4net.github.io", // Allow your GitHub Pages site to connect
+    methods: ["GET", "POST"], // Allowed request methods
+  },
+});
 let yourmark;
 const users = {};
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-// Serve static files from the "public" directory
-app.use(express.static(join(__dirname, "public")));
-
-app.get("/", (req, res) => {
-  res.sendFile(join(__dirname, "index.html"));
-});
 
 io.on("connection", (socket) => {
   console.log("a user connected");
