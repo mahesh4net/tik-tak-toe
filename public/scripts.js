@@ -267,7 +267,7 @@ function getRoomId() {
 }
 
 // socket logic
-const socket = io();
+const socket = io("https://tik-tak-toe-backend-w6i5.onrender.com");
 const roomId = getRoomId();
 
 roomIdDisplay.textContent = roomId;
@@ -420,8 +420,7 @@ socket.on("roomFull", (message) => {
 
 socket.on("opponentDisconnected", (hello) => {
   alert("Your Opponent Disconnected");
-  simulateExit()
-
+  simulateExit();
 });
 
 socket.on("opponentExit", () => {
