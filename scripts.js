@@ -437,3 +437,14 @@ function simulateExit() {
   exitBtn.classList.add("hide");
   restartBtn.classList.remove("hide");
 }
+
+socket.on("newIsvalueo", (newIsValueO) => {
+  isvalueo = newIsValueO;
+  if (isvalueo == true) {
+    oTurn.classList.add("turn-active");
+    xTurn.classList.remove("turn-active");
+  } else {
+    xTurn.classList.add("turn-active");
+    oTurn.classList.remove("turn-active");
+  }
+});
