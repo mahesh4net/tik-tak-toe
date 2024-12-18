@@ -5,20 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIK TAK TOE</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
     <div class="main-container">
+        <div class="title-container">
+            <h3 id="page-navigation"><a href="index.html" id="singleplayer" >singleplayer</a> <a
+                    href="multiplayer.html" id="multiplayer" class="page-active">multiplayer</a></h3>
+            <h3 class="userroom-text">Room ID: <span class="userroom-no">loading..</span></h3>
 
-        <h1 class="title">TIK TAK TOE</h1>
+            <h1 class="title">TIK TAK TOE</h1>
+        </div>
+
         <div class="top-menu">
             <div class="turn-indicator">
                 <h3 class="o-turn turn-active" id="o-turn">O</h3>
                 <h3 class="x-turn" id="x-turn">X</h3>
             </div>
             <h3 class="timer"><span id="minute">00</span>:<span id="second">00</span></h3>
-            <h2 onclick="restart()">RESTART</h2>
+            <h2 onclick="restart()" id="restart-btn" class="click-disable">RESTART</h2>
+            <h2 class="hide" id="exit-btn" onclick="Exit()">EXIT</h2>
         </div>
 
         <div class="game-container" id="game-container">
@@ -67,11 +74,13 @@
 
 
 
-
+            <div class="joinbtn-container">
+                <h3 class="joinroom">JOIN A ROOM!</h3>
+            </div>
 
         </div>
         <div class="winner-message" id="winner-message"></div>
-    <p class="credit">Made with &#9825; By Mahesh4net</p>
+        <p class="credit">Made with &#9825; By Mahesh4net</p>
 
 
     </div>
@@ -81,7 +90,17 @@
     <audio src="assets/tie.mp3" id="tie" preload="auto"></audio>
     <audio src="assets/win.mp3" id="win" preload="auto"></audio>
     <audio src="assets/restart.mp3" id="restart" preload="auto"></audio>
-    <script src="scripts.js"></script>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+
+    <script src="/scripts.js"></script>
+
+
+
+    <script>
+
+
+
+    </script>
 </body>
 
 </html>

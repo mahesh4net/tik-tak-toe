@@ -46,14 +46,16 @@ body {
   padding: 0.3rem;
   border-radius: 1rem;
   font-size: 1rem;
-  width: 33.33%;
+  min-width: fit-content;
 }
 
 h3 {
   display: inline-block;
-  padding: 1rem 0rem;
-  width: 50%;
+  padding: 1rem 1rem;
+  width: fit-content;
   border-radius: 1rem;
+  text-wrap: nowrap;
+  
 }
 
 .turn-active {
@@ -95,6 +97,17 @@ h3 {
   display: flex !important;
 }
 
+
+.loose-red{
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0) 0%,
+    /* Fully transparent on the left */ rgb(255, 0, 0) 40%,
+    /* Solid black in the center */ rgb(255, 0, 0) 60%,
+    /* Solid black in the center */ rgba(255, 0, 0, 0) 100% /* Fully transparent on the right */
+  );
+}
+
 .box {
   max-width: calc(33.33% - 0.6rem);
   width: calc(33.33% - 0.6rem);
@@ -110,6 +123,70 @@ h3 {
 
 .box:active {
   transform: scale(0.9);
+}
+
+
+.userroom-text{
+  font-size: 1.5rem;
+  padding: 0px;
+}
+
+
+.userroom-no{
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 255, 0, 0.262);
+  border-radius: 0.2rem;
+  letter-spacing: 1px;
+}
+
+.joinbtn-container{
+   width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.471);
+}
+
+.joinroom{
+ 
+  
+  display: inline-block;
+  padding: 1rem 4rem;
+  background-color: green;
+  border-radius: 0.2rem;
+  font-size: 2rem;
+
+}
+
+
+.joinroom:hover{
+  cursor: pointer;
+  background-color: rgb(3, 90, 3);
+}
+
+.joinroom:active{
+  transform: scale(0.95);
+}
+
+
+.title-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 80%;
+  
+}
+
+.title-container h3, .title-container h1{
+  text-align: center !important;
+
 }
 
 .box h1 {
@@ -140,6 +217,10 @@ h2 {
   align-items: center;
 }
 
+.hide{
+  display: none !important;
+}
+
 .credit {
   font-size: 1.5rem;
   font-weight: 500;
@@ -148,6 +229,39 @@ h2 {
   right: 10px;
   opacity: 0.3;
 }
+
+
+#page-navigation{
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+background-color: rgba(69, 66, 108, 0.687);
+
+}
+
+.page-active{
+  background-color: rgb(99, 5, 221);
+
+}
+
+#page-navigation a{
+  text-decoration: none;
+display: inline-block;
+padding: 0.5rem 1rem;
+border-radius: 0.3rem;
+color: rgb(255, 255, 255);
+
+font-size: 1.5rem;
+}
+
+#page-navigation a:hover{
+cursor: pointer;
+
+}
+#page-navigation a:active{
+transform: scale(0.95);
+
+}
+
 
 h2:hover {
   background-color: rgb(203, 71, 71);
@@ -333,6 +447,13 @@ h2:active {
   }
 }
 
+@media(max-width: 500px){
+  .title{
+    width: 100%;
+     font-size: 4rem !important;
+  }
+}
+
 @media (max-width: 426px) {
   :root {
     font-size: 10px;
@@ -346,6 +467,7 @@ h2:active {
 
   .title {
     width: 90%;
+   
   }
 
   .game-container {
