@@ -17,7 +17,7 @@ app.use(
 
 const io = new Server(server, {
   cors: {
-    origin: "https://mahesh4net.github.io", // Allow your GitHub Pages site to connect
+    origin: "https://mahesh4net.github.io", // Allow GitHub Pages site to connect
     methods: ["GET", "POST"], // Allowed request methods
   },
 });
@@ -83,14 +83,13 @@ io.on("connection", (socket) => {
       // Join new room
       const yourmark = Math.random() < 0.5 ? "o" : "x";
       const opponentmark = yourmark === "o" ? "x" : "o";
-      const isvalueo = Math.random() < 0.5
-
+      const isvalueo = Math.random() < 0.5;
 
       socket.join(newroom);
       users[socket.id] = newroom;
       socket.emit("newRoomJoined", { newroom, yourmark });
       socket.to(newroom).emit("joinRequest", opponentmark);
-       io.to(newroom).emit("newIsvalueo", isvalueo);
+      io.to(newroom).emit("newIsvalueo", isvalueo);
 
       console.log(`Player changed to room ${newroom}`);
     }

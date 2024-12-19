@@ -1,6 +1,5 @@
 let isvalueo = true;
 let yoursimble = Math.random() < 0.5 ? "o" : "x";
-
 let isyourturn = (isvalueo == true && yoursimble == "o") || (isvalueo != true && yoursimble == "x") ? true : false;
 
 const boxes = document.querySelectorAll(".box");
@@ -10,7 +9,6 @@ const winnerMessage = document.getElementById("winner-message");
 const gameContainer = document.getElementById("game-container");
 const minute = document.getElementById("minute");
 const second = document.getElementById("second");
-
 const movesound = document.getElementById("move");
 const tiesound = document.getElementById("tie");
 const winsound = document.getElementById("win");
@@ -18,7 +16,6 @@ const restartsound = document.getElementById("restart");
 const restartBtn = document.getElementById("restart-btn");
 const exitBtn = document.getElementById("exit-btn");
 const joinBtnContainer = document.querySelector(".joinbtn-container");
-
 const b1b2b3 = document.getElementById("b1b2b3");
 const b4b5b6 = document.getElementById("b4b5b6");
 const b7b8b9 = document.getElementById("b7b8b9");
@@ -27,14 +24,12 @@ const b2b5b8 = document.getElementById("b2b5b8");
 const b3b6b9 = document.getElementById("b3b6b9");
 const b1b5b9 = document.getElementById("b1b5b9");
 const b3b5b7 = document.getElementById("b3b5b7");
-
 let roomIdDisplay = document.querySelector(".userroom-no");
 
 let timeINSeconds = 0;
 let timeInMinutes = 0;
 let isTimerStarted = false;
 let timeInterval;
-
 let winner = null;
 let isTie = false;
 
@@ -88,22 +83,20 @@ function handleClick(e) {
       oTurn.classList.add("turn-active");
     }
     checkwinner();
-
     isyourturn = false;
   }
 }
 
 function restart() {
   socket.emit("restart", roomIdDisplay.textContent);
-
   restartsound.play();
-
   restartBtn.classList.add("hide");
   exitBtn.classList.remove("hide");
 
   boxes.forEach((box) => {
     box.firstElementChild.textContent = "";
   });
+
   timeINSeconds = "00";
   timeInMinutes = "00";
   isTimerStarted = false;
@@ -141,46 +134,46 @@ function checkwinner() {
     b1b2b3.classList.add(winner == "o" ? "bg-green" : "bg-red");
     gameEnd();
   }
+
   if (box4value == box5value && box5value == box6value && box4value != "") {
     winner = box4value;
     b4b5b6.classList.add(winner == "o" ? "bg-green" : "bg-red");
-
     gameEnd();
   }
+
   if (box7value == box8value && box8value == box9value && box7value != "") {
     winner = box7value;
     b7b8b9.classList.add(winner == "o" ? "bg-green" : "bg-red");
-
     gameEnd();
   }
+
   if (box1value == box4value && box4value == box7value && box1value != "") {
     winner = box1value;
     b1b4b7.classList.add(winner == "o" ? "bg-green" : "bg-red");
-
     gameEnd();
   }
+
   if (box2value == box5value && box5value == box8value && box2value != "") {
     winner = box2value;
     b2b5b8.classList.add(winner == "o" ? "bg-green" : "bg-red");
-
     gameEnd();
   }
+
   if (box3value == box6value && box6value == box9value && box3value != "") {
     winner = box3value;
     b3b6b9.classList.add(winner == "o" ? "bg-green" : "bg-red");
-
     gameEnd();
   }
+
   if (box1value == box5value && box5value == box9value && box1value != "") {
     winner = box1value;
     b1b5b9.classList.add(winner == "o" ? "bg-green" : "bg-red");
-
     gameEnd();
   }
+
   if (box3value == box5value && box5value == box7value && box3value != "") {
     winner = box3value;
     b3b5b7.classList.add(winner == "o" ? "bg-green" : "bg-red");
-
     gameEnd();
   }
 
@@ -197,7 +190,6 @@ function checkwinner() {
     winner == null
   ) {
     isTie = true;
-
     gameEnd();
   }
 }
@@ -217,15 +209,18 @@ function startTimer() {
 
 function gameEnd() {
   winnerMessage.classList.remove("loose-red");
-  if (isTie) {
+
+  if (isTie || winner != yoursimble) {
     tiesound.play();
   } else {
     winsound.play();
   }
+
   clearInterval(timeInterval);
 
   gameContainer.classList.add("click-disable");
   winnerMessage.classList.add("winner-active");
+
   winnerMessage.textContent =
     winner == "o" && isTie == false && yoursimble == "o"
       ? "YOU WIN !"
@@ -236,6 +231,7 @@ function gameEnd() {
       : winner == "x" && isTie == false && yoursimble != "x"
       ? "YOU LOOSE"
       : "GAME Tied !";
+
   if (
     (winner == "o" && isTie == false && yoursimble != "o") ||
     (winner == "x" && isTie == false && yoursimble != "x")
@@ -266,6 +262,10 @@ function getRoomId() {
   return roomId;
 }
 
+
+
+
+
 // socket logic
 const socket = io("https://tik-tak-toe-backend-w6i5.onrender.com");
 const roomId = getRoomId();
@@ -279,7 +279,6 @@ socket.on("roomJoined", (yourmark) => {
 });
 
 const joinBtn = document.querySelector(".joinroom");
-
 joinBtn.addEventListener("click", joinNewRoom);
 
 function joinNewRoom() {
@@ -308,7 +307,6 @@ socket.on("newRoomJoined", (newRoomData) => {
 
 socket.on("serverHandleClick", (elementid) => {
   const clickedElement = document.getElementById(elementid);
-  console.log("handleclick runnnn");
   simulateClick(clickedElement);
 });
 
@@ -354,13 +352,13 @@ socket.on("serverRestart", () => {
 
 function simulateRestart() {
   restartsound.play();
-
   restartBtn.classList.add("hide");
   exitBtn.classList.remove("hide");
 
   boxes.forEach((box) => {
     box.firstElementChild.textContent = "";
   });
+
   timeINSeconds = "00";
   timeInMinutes = "00";
   isTimerStarted = false;
@@ -402,7 +400,6 @@ function Exit() {
   simulateRestart();
 
   socket.emit("joinRoom", { roomId: roomId, firstTODisconnect: true });
-
   socket.emit("exit", roomIdDisplay.textContent);
   joinBtnContainer.classList.remove("hide");
   exitBtn.classList.add("hide");

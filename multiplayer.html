@@ -1,91 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TIK TAK TOE</title>
-    
-    <link rel="stylesheet" href="styles.css">
-</head>
 
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
     <div class="main-container">
-        <div class="title-container">
-            <h3 id="page-navigation"><a href="index.html" id="singleplayer" >singleplayer</a> <a
-                    href="multiplayer.html" id="multiplayer" class="page-active">multiplayer</a></h3>
-            <h3 class="userroom-text">Room ID: <span class="userroom-no">loading..</span></h3>
+      <div class="title-container">
+        <h3 id="page-navigation">
+          <a href="index.html" id="singleplayer">singleplayer</a>
+          <a href="multiplayer.html" id="multiplayer" class="page-active">multiplayer</a>
+        </h3>
+        <h3 class="userroom-text">Room ID: <span class="userroom-no">loading..</span></h3>
 
-            <h1 class="title">TIK TAK TOE</h1>
+        <h1 class="title">TIK TAK TOE</h1>
+      </div>
+
+      <div class="top-menu">
+        <div class="turn-indicator">
+          <h3 class="o-turn turn-active" id="o-turn">O</h3>
+          <h3 class="x-turn" id="x-turn">X</h3>
+        </div>
+        <h3 class="timer"><span id="minute">00</span>:<span id="second">00</span></h3>
+        <h2 onclick="restart()" id="restart-btn" class="click-disable">RESTART</h2>
+        <h2 class="hide" id="exit-btn" onclick="Exit()">EXIT</h2>
+      </div>
+
+      <div class="game-container" id="game-container">
+        <div class="box-1 box" id="box-1">
+          <h1></h1>
+        </div>
+        <div class="box-2 box" id="box-2">
+          <h1></h1>
+        </div>
+        <div class="box-3 box" id="box-3">
+          <h1></h1>
+        </div>
+        <div class="box-4 box" id="box-4">
+          <h1></h1>
+        </div>
+        <div class="box-5 box" id="box-5">
+          <h1></h1>
+        </div>
+        <div class="box-6 box" id="box-6">
+          <h1></h1>
+        </div>
+        <div class="box-7 box" id="box-7">
+          <h1></h1>
+        </div>
+        <div class="box-8 box" id="box-8">
+          <h1></h1>
+        </div>
+        <div class="box-9 box" id="box-9">
+          <h1></h1>
         </div>
 
-        <div class="top-menu">
-            <div class="turn-indicator">
-                <h3 class="o-turn turn-active" id="o-turn">O</h3>
-                <h3 class="x-turn" id="x-turn">X</h3>
-            </div>
-            <h3 class="timer"><span id="minute">00</span>:<span id="second">00</span></h3>
-            <h2 onclick="restart()" id="restart-btn" class="click-disable">RESTART</h2>
-            <h2 class="hide" id="exit-btn" onclick="Exit()">EXIT</h2>
+        <div class="b1b2b3 line" id="b1b2b3"></div>
+        <div class="b4b5b6 line" id="b4b5b6"></div>
+        <div class="b7b8b9 line" id="b7b8b9"></div>
+        <div class="b1b4b7 line" id="b1b4b7"></div>
+        <div class="b2b5b8 line" id="b2b5b8"></div>
+        <div class="b3b6b9 line" id="b3b6b9"></div>
+        <div class="b1b5b9 line" id="b1b5b9"></div>
+        <div class="b3b5b7 line" id="b3b5b7"></div>
+
+        <div class="joinbtn-container">
+          <h3 class="joinroom">JOIN A ROOM!</h3>
         </div>
-
-        <div class="game-container" id="game-container">
-            <div class="box-1 box" id="box-1">
-                <h1></h1>
-            </div>
-            <div class="box-2 box" id="box-2">
-                <h1></h1>
-            </div>
-            <div class="box-3 box" id="box-3">
-                <h1></h1>
-            </div>
-            <div class="box-4 box" id="box-4">
-                <h1></h1>
-            </div>
-            <div class="box-5 box" id="box-5">
-                <h1></h1>
-            </div>
-            <div class="box-6 box" id="box-6">
-                <h1></h1>
-            </div>
-            <div class="box-7 box" id="box-7">
-                <h1></h1>
-            </div>
-            <div class="box-8 box" id="box-8">
-                <h1></h1>
-            </div>
-            <div class="box-9 box" id="box-9">
-                <h1></h1>
-            </div>
-
-
-
-
-
-            <div class="b1b2b3 line" id="b1b2b3"></div>
-            <div class="b4b5b6 line" id="b4b5b6"></div>
-            <div class="b7b8b9 line" id="b7b8b9"></div>
-            <div class="b1b4b7 line" id="b1b4b7"></div>
-            <div class="b2b5b8 line" id="b2b5b8"></div>
-            <div class="b3b6b9 line" id="b3b6b9"></div>
-            <div class="b1b5b9 line" id="b1b5b9"></div>
-            <div class="b3b5b7 line" id="b3b5b7"></div>
-
-
-
-
-
-            <div class="joinbtn-container">
-                <h3 class="joinroom">JOIN A ROOM!</h3>
-            </div>
-
-        </div>
-        <div class="winner-message" id="winner-message"></div>
-        <p class="credit">Made with &#9825; By Mahesh4net</p>
-
-
+      </div>
+      <div class="winner-message" id="winner-message"></div>
+      <p class="credit">Made with &#9825; By Mahesh4net</p>
     </div>
-
 
     <audio src="assets/move.mp3" id="move" preload="auto"></audio>
     <audio src="assets/tie.mp3" id="tie" preload="auto"></audio>
@@ -95,13 +84,6 @@
 
     <script src="scripts.js"></script>
 
-
-
-    <script>
-
-
-
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>
